@@ -1,0 +1,22 @@
+d6466f93ef5a6f8b44b5dde1a21c0824a41d3512
+
+##########################33
+
+import requests
+my_domain = 'MtechNITK.pythonanywhere.com'
+username = 'MtechNITK'
+token = 'd6466f93ef5a6f8b44b5dde1a21c0824a41d3512'
+
+response = requests.post(
+  'https://www.pythonanywhere.com/api/v0/user/{username}/webapps/{domain}/reload/'.format(
+      username=username, domain=my_domain
+  ),
+  headers={'Authorization': 'Token {token}'.format(token=token)}
+)
+if response.status_code == 200:
+  print('All OK')
+else:
+  print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
+                        
+
+###########################
